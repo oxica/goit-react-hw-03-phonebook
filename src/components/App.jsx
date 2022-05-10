@@ -95,13 +95,15 @@ class App extends Component {
 
         <h2 className={s.titleContacts}>Contacts</h2>
         <div className={s.allContacts}>All contacts: {contacts.length}</div>
-        <Filter value={filter} onChange={this.changeFilter} />
 
         {contacts.length > 0 ? (
-          <ContactList
-            contacts={visibleContacts}
-            onDeleteContact={this.deleteContact}
-          />
+          <>
+            <Filter value={filter} onChange={this.changeFilter} />
+            <ContactList
+              contacts={visibleContacts}
+              onDeleteContact={this.deleteContact}
+            />
+          </>
         ) : (
           <Notification message="Contact list is empty" />
         )}
